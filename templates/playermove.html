@@ -1,0 +1,46 @@
+{% block playermove %}
+    {% for move in player.pokemon[0].moves %}
+        <div class="col-6">
+            <div class="card p-3 pokemon-ability rounded shadow" style="background-color: {{ colors[move.moveType] }};">
+                <!-- <div class="card-title"> -->
+                    <div class="row p-0">
+                        <div class="col-4 d-flex justify-items-center align-items-center">
+                            <!-- <img class="player-move-type  rounded-start" src="static/images/TypeIcons/fire.svg"> -->
+                            <img class="player-move-type img-fluid rounded-start" src="static/images/TypeIcons/{{ move.moveType }}.svg">
+                        </div>
+                        <div class="col-8 d-flex align-items-center">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h5 class="text">{{ move.moveName | capitalize }}</h5>
+                                </div>
+                                <div class="col">
+                                    <img class="move-stat-icon rounded-start" src="static/images/MoveCatIcons/{{ move.moveCategory }}.png">
+                                    {% if move.movePower > 0 %}
+                                        <p class="">{{ move.movePower | int}}</p>
+                                    {% else %}
+                                        <p class="">-</p>
+                                    {% endif %}
+                                </div>
+                                <div class="col">
+                                    <div class="row">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="move-stat-icon bi bi-crosshair" viewBox="0 0 16 16">
+                                            <path d="M8.5.5a.5.5 0 0 0-1 0v.518A7 7 0 0 0 1.018 7.5H.5a.5.5 0 0 0 0 1h.518A7 7 0 0 0 7.5 14.982v.518a.5.5 0 0 0 1 0v-.518A7 7 0 0 0 14.982 8.5h.518a.5.5 0 0 0 0-1h-.518A7 7 0 0 0 8.5 1.018zm-6.48 7A6 6 0 0 1 7.5 2.02v.48a.5.5 0 0 0 1 0v-.48a6 6 0 0 1 5.48 5.48h-.48a.5.5 0 0 0 0 1h.48a6 6 0 0 1-5.48 5.48v-.48a.5.5 0 0 0-1 0v.48A6 6 0 0 1 2.02 8.5h.48a.5.5 0 0 0 0-1zM8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4"/>
+                                        </svg>
+                                        {% if move.movePower > 0 %}
+                                            <p class="">{{ move.moveAccuracy | int}}</p>
+                                        {% else %}
+                                            <p class="">-</p>
+                                        {% endif %}
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    <!-- </div> -->
+                </div>
+                <div class="card-body move-desc p-0">
+                    <p class="card-text text-start">{{ move.moveDesc }}</p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

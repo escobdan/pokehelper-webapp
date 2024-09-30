@@ -1,0 +1,128 @@
+{% block enemy_counters %}
+
+<!-- Nav tabs -->
+<div class="d-flex align-items-center">
+    <div class="tab-content" id="v-enemy-pills-tabContent">
+      <div class="tab-pane show active" id="v-enemy-strong-against" role="tabpanel" aria-labelledby="strong-against-tab">
+        <div class="row pe-2 row-cols-1">
+          {% if enemy.pokemon[0].secondaryType %}
+            {% set strong_against = (counters[enemy.pokemon[0].primaryType].strong_against + counters[enemy.pokemon[0].secondaryType].strong_against) | unique | list %}
+          {% else %}
+            {% set strong_against = counters[enemy.pokemon[0].primaryType].strong_against %}
+          {% endif %}
+            {% if strong_against | length > 1 %}
+            {% for type in strong_against %}
+              <div class="col py-2">
+                  <img class="counter-icon" src="static/images/TypeIcons/{{ type }}.svg">
+              </div>
+            {% endfor %}
+          {% else %}
+            {% if strong_against | length == 1 %}
+              <div class="col py-2"></div>
+              <div class="col py-2">
+                <img class="counter-icon" src="static/images/TypeIcons/{{ strong_against[0] }}.svg">
+              </div>
+              <div class="col py-2"></div>
+            {% endif %}
+          {% endif %}
+        </div>
+      </div>
+      <div class="tab-pane" id="v-enemy-weak-against" role="tabpanel" aria-labelledby="weak-against-tab">
+        <div class="row pe-2 row-cols-1">
+          {% if enemy.pokemon[0].secondaryType %}
+            {% set weak_against = (counters[enemy.pokemon[0].primaryType].weak_against + counters[enemy.pokemon[0].secondaryType].weak_against) | unique | list %}
+          {% else %}
+            {% set weak_against = counters[enemy.pokemon[0].primaryType].weak_against %}
+          {% endif %}
+          {% if weak_against | length > 1 %}
+            {% for type in weak_against %}
+              <div class="col py-2">
+                  <img class="counter-icon" src="static/images/TypeIcons/{{ type }}.svg">
+              </div>
+            {% endfor %}
+          {% else %}
+            {% if weak_against | length == 1 %}
+              <div class="col py-2"></div>
+              <div class="col py-2">
+                <img class="counter-icon" src="static/images/TypeIcons/{{ weak_against[0] }}.svg">
+              </div>
+              <div class="col py-2"></div>
+            {% endif %}
+          {% endif %}
+        </div>
+      </div>
+      <div class="tab-pane" id="v-enemy-resistant-to" role="tabpanel" aria-labelledby="resistant-to-tab">
+        <div class="row pe-2 row-cols-1">
+          {% if enemy.pokemon[0].secondaryType %}
+            {% set resistant_to = (counters[enemy.pokemon[0].primaryType].resistant_to + counters[enemy.pokemon[0].secondaryType].resistant_to) | unique | list %}
+          {% else %}
+            {% set resistant_to = counters[enemy.pokemon[0].primaryType].resistant_to %}
+          {% endif %}
+          {% if resistant_to | length > 1 %}
+            {% for type in resistant_to %}
+              <div class="col py-2">
+                  <img class="counter-icon" src="static/images/TypeIcons/{{ type }}.svg">
+              </div>
+            {% endfor %}
+          {% else %}
+            {% if resistant_to | length == 1 %}
+              <div class="col py-2"></div>
+              <div class="col py-2">
+                <img class="counter-icon" src="static/images/TypeIcons/{{ resistant_to[0] }}.svg">
+              </div>
+              <div class="col py-2"></div>
+            {% endif %}
+          {% endif %}
+        </div>
+      </div>
+      <div class="tab-pane" id="v-enemy-vulnerable-to" role="tabpanel" aria-labelledby="vulnerable-to-tab">
+        <div class="row pe-2 row-cols-1">
+          {% if enemy.pokemon[0].secondaryType %}
+            {% set vulnerable_to = (counters[enemy.pokemon[0].primaryType].vulnerable_to + counters[enemy.pokemon[0].secondaryType].vulnerable_to) | unique | list %}
+          {% else %}
+            {% set vulnerable_to = counters[enemy.pokemon[0].primaryType].vulnerable_to %}
+          {% endif %}
+          {% if vulnerable_to | length > 1 %}
+            {% for type in vulnerable_to %}
+              <div class="col py-2">
+                  <img class="counter-icon" src="static/images/TypeIcons/{{ type }}.svg">
+              </div>
+            {% endfor %}
+          {% else %}
+            {% if vulnerable_to | length == 1 %}
+              <div class="col py-2"></div>
+              <div class="col py-2">
+                <img class="counter-icon" src="static/images/TypeIcons/{{ vulnerable_to[0] }}.svg">
+              </div>
+              <div class="col py-2"></div>
+            {% endif %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <div class="nav flex-column nav-pills m-0" id="v-enemy-pills-tab" role="tablist" aria-orientation="vertical">
+      <button class="counter-enemy nav-link rotate-enemy-text active enemy" id="strong-against-tab" data-bs-toggle="pill" data-bs-target="#v-enemy-strong-against" type="button" role="tab" aria-controls="v-strong-against" aria-selected="true">str</button>
+      <button class="counter-enemy nav-link rotate-enemy-text enemy" id="weak-against-tab" data-bs-toggle="pill" data-bs-target="#v-enemy-weak-against" type="button" role="tab" aria-controls="v-weak-against" aria-selected="false">wea</button>
+      <button class="counter-enemy nav-link rotate-enemy-text enemy" id="resistant-to-tab" data-bs-toggle="pill" data-bs-target="#v-enemy-resistant-to" type="button" role="tab" aria-controls="v-resistant-to" aria-selected="false">res</button>
+      <button class="counter-enemy nav-link rotate-enemy-text enemy" id="vulnerable-to-tab" data-bs-toggle="pill" data-bs-target="#v-enemy-vulnerable-to" type="button" role="tab" aria-controls="v-vulnerable-to" aria-selected="false">vul</button>
+    </div>
+</div>
+
+<style>
+  .nav-pills .nav-link.active.enemy {
+    background-color: {{ colors[enemy.pokemon[0].primaryType] }};
+  }
+
+  .nav-pills .nav-link {
+    color: white;
+  }
+
+</style>
+
+<script>
+$(function () {
+    // Optional: Activate the first tab on page load
+    $('#strong-against-tab').tab('show');
+});
+</script>
+{% endblock %}
