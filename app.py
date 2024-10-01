@@ -58,12 +58,12 @@ test5 = '{"ee37bc44-eeb3-3a18-8bd0-93b5769d5697":{"is_player":true,"pokemon":[{"
 def index():
     data = json.loads(test1)
 
-    # player, enemy = data.values()
+    player, enemy = data.values()
 
-    # playerSprite = pb.SpriteResource('pokemon', player["pokemon"][0]["pokedexNumber"])
-    # enemySprite = pb.SpriteResource('pokemon', enemy["pokemon"][0]["pokedexNumber"])
-    # player["url"] = playerSprite.url
-    # enemy["url"] = enemySprite.url
+    playerSprite = pb.SpriteResource('pokemon', player["pokemon"][0]["pokedexNumber"])
+    enemySprite = pb.SpriteResource('pokemon', enemy["pokemon"][0]["pokedexNumber"])
+    player["url"] = playerSprite.url
+    enemy["url"] = enemySprite.url
 
     if request.method == "POST" and request.is_json:
         if request.isjson:
