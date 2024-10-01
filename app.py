@@ -75,6 +75,10 @@ def index():
             player["url"] = playerSprite.url
             enemy["url"] = enemySprite.url
             
-        return render_template("index.html", enemy=enemy, player=player, url=playerSprite.url, colors=colors, counters=counters)
+            render_template("index.html", enemy=enemy, player=player, url=playerSprite.url, colors=colors, counters=counters)
+            
+            return jsonify({"message": "JSON data received successfully!!"}, 200)
+        else:
+            return jsonify({"error":"Content Type must be json"}, 400)
 
     return render_template("index.html", enemy=enemy, player=player, url=playerSprite.url, colors=colors, counters=counters)
