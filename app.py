@@ -28,24 +28,24 @@ counters = {
     }
 
 colors = {
-	'normal': '#A8A77A',
-	'fire': '#EE8130',
-	'water': '#6390F0',
-	'electric': '#F7D02C',
-	'grass': '#7AC74C',
-	'ice': '#96D9D6',
-	'fighting': '#C22E28',
-	'poison': '#A33EA1',
-	'ground': '#E2BF65',
-	'flying': '#A98FF3',
-	'psychic': '#F95587',
-	'bug': '#A6B91A',
-	'rock': '#B6A136',
-	'ghost': '#735797',
-	'dragon': '#6F35FC',
-	'dark': '#705746',
-	'steel': '#B7B7CE',
-	'fairy': '#D685AD',
+	'normal': '#aab09f',
+	'fire': '#ea7a3c',
+	'water': '#539ae2',
+	'electric': '#e5c531',
+	'grass': '#71c558',
+	'ice': '#70cbd4',
+	'fighting': '#cb5f48',
+	'poison': '#b468b7',
+	'ground': '#cc9f4f',
+	'flying': '#7da6de',
+	'psychic': '#e5709b',
+	'bug': '#94bc4a',
+	'rock': '#b2a061',
+	'ghost': '#846ab6',
+	'dragon': '#6a7baf',
+	'dark': '#373438',
+	'steel': '#89a1b0',
+	'fairy': '#e397d1',
 }
 
 test4 = '{"f0737fb5-4d0f-3bee-a039-92e456a5cc2e":{"is_player":true,"pokemon":[{"pokemonName":"Palkia","pokedexNumber":484,"primaryType":"water","secondaryType":"dragon","hp":13,"currentHealth":13,"lvl":1,"attack":7,"defence":7,"specialAttack":8,"specialDefence":7,"speed":6,"moves":[{"moveName":"waterpulse","moveDesc":"The user attacks the target with a pulsing blast of water. This may also confuse the target.","moveType":"water","movePower":60.0,"moveCategory":"special","moveAccuracy":100.0,"movePp":20},{"moveName":"scaryface","moveDesc":"The user frightens the target with a scary face to harshly lower its Speed stat.","moveType":"normal","movePower":0.0,"moveCategory":"status","moveAccuracy":100.0,"movePp":10},{"moveName":"dragonbreath","moveDesc":"The user exhales a mighty gust that inflicts damage. This may also leave the target with paralysis.","moveType":"dragon","movePower":60.0,"moveCategory":"special","moveAccuracy":100.0,"movePp":20}]}]},"7e9f58e0-852e-408f-91fe-54f12ac4e4a6":{"is_player":false,"pokemon":[{"pokemonName":"Groudon","pokedexNumber":383,"primaryType":"ground","hp":13,"currentHealth":13,"lvl":1,"attack":8,"defence":7,"specialAttack":7,"specialDefence":6,"speed":7,"moves":[{"moveName":"scaryface","moveDesc":"The user frightens the target with a scary face to harshly lower its Speed stat.","moveType":"normal","movePower":0.0,"moveCategory":"status","moveAccuracy":100.0,"movePp":10},{"moveName":"precipiceblades","moveDesc":"The user attacks opposing Pokémon by manifesting the power of the land in fearsome blades of stone.","moveType":"ground","movePower":120.0,"moveCategory":"physical","moveAccuracy":85.0,"movePp":10},{"moveName":"mudshot","moveDesc":"The user attacks by hurling a blob of mud at the target. This also lowers the target’s Speed stat.","moveType":"ground","movePower":55.0,"moveCategory":"special","moveAccuracy":95.0,"movePp":15},{"moveName":"lavaplume","moveDesc":"The user torches everything around it in an inferno of scarlet flames. This may also leave those it hits with a burn.","moveType":"fire","movePower":80.0,"moveCategory":"special","moveAccuracy":100.0,"movePp":15}]}]}}'
@@ -54,17 +54,23 @@ test3 = '{"12477fb0-fd41-3fca-893f-e59684d982a8":{"is_player":true,"pokemon":[{"
 test1 = '{"ee37bc44-eeb3-3a18-8bd0-93b5769d5697":{"is_player":true,"pokemon":[{"pokemonName":"Cradily","pokedexNumber":346,"primaryType":"rock","secondaryType":"grass","hp":54,"currentHealth":54,"lvl":15,"attack":27,"defence":36,"specialAttack":32,"specialDefence":42,"speed":20,"moves":[{"moveName":"ingrain","moveDesc":"The user lays roots that restore its HP on every turn. Because it’s rooted, it can’t switch out.","moveType":"grass","movePower":0.0,"moveCategory":"status","moveAccuracy":-1.0,"movePp":20},{"moveName":"wringout","moveDesc":"The user powerfully wrings the target. The more HP the target has, the greater the move’s power.","moveType":"normal","movePower":0.0,"moveCategory":"special","moveAccuracy":100.0,"movePp":5},{"moveName":"wrap","moveDesc":"A long body, vines, or the like are used to wrap and squeeze the target for four to five turns.","moveType":"normal","movePower":15.0,"moveCategory":"physical","moveAccuracy":90.0,"movePp":20},{"moveName":"leechseed","moveDesc":"A seed is planted on the target. It steals some HP from the target every turn.","moveType":"grass","movePower":0.0,"moveCategory":"status","moveAccuracy":90.0,"movePp":10}]},{"pokemonName":"Charmander","pokedexNumber":4,"primaryType":"fire","hp":29,"currentHealth":29,"lvl":10,"attack":17,"defence":14,"specialAttack":22,"specialDefence":16,"speed":20,"moves":[{"moveName":"smokescreen","moveDesc":"The user releases an obscuring cloud of smoke or ink. This lowers the target’s accuracy.","moveType":"normal","movePower":0.0,"moveCategory":"status","moveAccuracy":100.0,"movePp":20},{"moveName":"ember","moveDesc":"The target is attacked with small flames. This may also leave the target with a burn.","moveType":"fire","movePower":40.0,"moveCategory":"special","moveAccuracy":100.0,"movePp":25},{"moveName":"scratch","moveDesc":"Hard, pointed, sharp claws rake the target to inflict damage.","moveType":"normal","movePower":40.0,"moveCategory":"physical","moveAccuracy":100.0,"movePp":35},{"moveName":"growl","moveDesc":"The user growls in an endearing way, making opposing Pokémon less wary. This lowers their Attack stats.","moveType":"normal","movePower":0.0,"moveCategory":"status","moveAccuracy":100.0,"movePp":40}]},{"pokemonName":"Revavroom","pokedexNumber":966,"primaryType":"steel","secondaryType":"poison","hp":286,"currentHealth":286,"lvl":99,"attack":264,"defence":203,"specialAttack":124,"specialDefence":162,"speed":212,"moves":[{"moveName":"gunkshot","moveDesc":"The user shoots filthy garbage at the target to attack. This may also poison the target.","moveType":"poison","movePower":120.0,"moveCategory":"physical","moveAccuracy":80.0,"movePp":5},{"moveName":"spinout","moveDesc":"Lowers the user\'s Speed by 2 stages.","moveType":"steel","movePower":100.0,"moveCategory":"physical","moveAccuracy":100.0,"movePp":5},{"moveName":"uproar","moveDesc":"The user attacks in an uproar for three turns. During that time, no Pokémon can fall asleep.","moveType":"normal","movePower":90.0,"moveCategory":"special","moveAccuracy":100.0,"movePp":10},{"moveName":"poisonjab","moveDesc":"The target is stabbed with a tentacle, arm, or the like steeped in poison. This may also poison the target.","moveType":"poison","movePower":80.0,"moveCategory":"physical","moveAccuracy":100.0,"movePp":20}]}]},"a5876ba9-d884-468d-8cf8-bd531f653721":{"is_player":false,"pokemon":[{"pokemonName":"Revavroom","pokedexNumber":966,"primaryType":"steel","secondaryType":"poison","hp":12,"currentHealth":12,"lvl":1,"attack":7,"defence":6,"specialAttack":6,"specialDefence":6,"speed":6,"moves":[{"moveName":"shiftgear","moveDesc":"The user rotates its gears, raising its Attack stat and sharply raising its Speed stat.","moveType":"steel","movePower":0.0,"moveCategory":"status","moveAccuracy":-1.0,"movePp":10},{"moveName":"poisongas","moveDesc":"A cloud of poison gas is sprayed in the face of opposing Pokémon, poisoning those it hits.","moveType":"poison","movePower":0.0,"moveCategory":"status","moveAccuracy":90.0,"movePp":40},{"moveName":"magnetrise","moveDesc":"The user levitates using electrically generated magnetism for five turns.","moveType":"electric","movePower":0.0,"moveCategory":"status","moveAccuracy":-1.0,"movePp":10},{"moveName":"lick","moveDesc":"The target is licked with a long tongue, causing damage. This may also leave the target with paralysis.","moveType":"ghost","movePower":30.0,"moveCategory":"physical","moveAccuracy":100.0,"movePp":30}]}]}}'
 test5 = '{"ee37bc44-eeb3-3a18-8bd0-93b5769d5697":{"is_player":true,"pokemon":[{"pokemonName":"Revavroom","pokedexNumber":966,"primaryType":"steel","secondaryType":"poison","hp":286,"currentHealth":286,"lvl":99,"attack":264,"defence":203,"specialAttack":124,"specialDefence":162,"speed":212,"moves":[{"moveName":"gunkshot","moveDesc":"The user shoots filthy garbage at the target to attack. This may also poison the target.","moveType":"poison","movePower":120.0,"moveCategory":"physical","moveAccuracy":80.0,"movePp":5},{"moveName":"spinout","moveDesc":"Lowers the user\'s Speed by 2 stages.","moveType":"steel","movePower":100.0,"moveCategory":"physical","moveAccuracy":100.0,"movePp":5},{"moveName":"uproar","moveDesc":"The user attacks in an uproar for three turns. During that time, no Pokémon can fall asleep.","moveType":"normal","movePower":90.0,"moveCategory":"special","moveAccuracy":100.0,"movePp":10},{"moveName":"poisonjab","moveDesc":"The target is stabbed with a tentacle, arm, or the like steeped in poison. This may also poison the target.","moveType":"poison","movePower":80.0,"moveCategory":"physical","moveAccuracy":100.0,"movePp":20}]},{"pokemonName":"Charmander","pokedexNumber":4,"primaryType":"fire","hp":29,"currentHealth":29,"lvl":10,"attack":17,"defence":14,"specialAttack":22,"specialDefence":16,"speed":20,"moves":[{"moveName":"smokescreen","moveDesc":"The user releases an obscuring cloud of smoke or ink. This lowers the target’s accuracy.","moveType":"normal","movePower":0.0,"moveCategory":"status","moveAccuracy":100.0,"movePp":20},{"moveName":"ember","moveDesc":"The target is attacked with small flames. This may also leave the target with a burn.","moveType":"fire","movePower":40.0,"moveCategory":"special","moveAccuracy":100.0,"movePp":25},{"moveName":"scratch","moveDesc":"Hard, pointed, sharp claws rake the target to inflict damage.","moveType":"normal","movePower":40.0,"moveCategory":"physical","moveAccuracy":100.0,"movePp":35},{"moveName":"growl","moveDesc":"The user growls in an endearing way, making opposing Pokémon less wary. This lowers their Attack stats.","moveType":"normal","movePower":0.0,"moveCategory":"status","moveAccuracy":100.0,"movePp":40}]},{"pokemonName":"Cradily","pokedexNumber":346,"primaryType":"rock","secondaryType":"grass","hp":54,"currentHealth":54,"lvl":15,"attack":27,"defence":36,"specialAttack":32,"specialDefence":42,"speed":20,"moves":[{"moveName":"ingrain","moveDesc":"The user lays roots that restore its HP on every turn. Because it’s rooted, it can’t switch out.","moveType":"grass","movePower":0.0,"moveCategory":"status","moveAccuracy":-1.0,"movePp":20},{"moveName":"wringout","moveDesc":"The user powerfully wrings the target. The more HP the target has, the greater the move’s power.","moveType":"normal","movePower":0.0,"moveCategory":"special","moveAccuracy":100.0,"movePp":5},{"moveName":"wrap","moveDesc":"A long body, vines, or the like are used to wrap and squeeze the target for four to five turns.","moveType":"normal","movePower":15.0,"moveCategory":"physical","moveAccuracy":90.0,"movePp":20},{"moveName":"leechseed","moveDesc":"A seed is planted on the target. It steals some HP from the target every turn.","moveType":"grass","movePower":0.0,"moveCategory":"status","moveAccuracy":90.0,"movePp":10}]}]},"a5876ba9-d884-468d-8cf8-bd531f653721":{"is_player":false,"pokemon":[{"pokemonName":"Revavroom","pokedexNumber":966,"primaryType":"steel","secondaryType":"poison","hp":12,"currentHealth":12,"lvl":1,"attack":7,"defence":6,"specialAttack":6,"specialDefence":6,"speed":6,"moves":[{"moveName":"shiftgear","moveDesc":"The user rotates its gears, raising its Attack stat and sharply raising its Speed stat.","moveType":"steel","movePower":0.0,"moveCategory":"status","moveAccuracy":-1.0,"movePp":10},{"moveName":"poisongas","moveDesc":"A cloud of poison gas is sprayed in the face of opposing Pokémon, poisoning those it hits.","moveType":"poison","movePower":0.0,"moveCategory":"status","moveAccuracy":90.0,"movePp":40},{"moveName":"magnetrise","moveDesc":"The user levitates using electrically generated magnetism for five turns.","moveType":"electric","movePower":0.0,"moveCategory":"status","moveAccuracy":-1.0,"movePp":10},{"moveName":"lick","moveDesc":"The target is licked with a long tongue, causing damage. This may also leave the target with paralysis.","moveType":"ghost","movePower":30.0,"moveCategory":"physical","moveAccuracy":100.0,"movePp":30}]}]}}'
 
+data = json.loads(test1)
+
+player, enemy = data.values()
+
+playerSprite = pb.SpriteResource('pokemon', player["pokemon"][0]["pokedexNumber"])
+enemySprite = pb.SpriteResource('pokemon', enemy["pokemon"][0]["pokedexNumber"])
+player["url"] = playerSprite.url
+enemy["url"] = enemySprite.url
+
 @app.route("/", methods=["GET", "POST"])
 def index():
-    data = json.loads(test1)
+    
+    return render_template("index.html", enemy=enemy, player=player, colors=colors, counters=counters)
 
-    player, enemy = data.values()
 
-    playerSprite = pb.SpriteResource('pokemon', player["pokemon"][0]["pokedexNumber"])
-    enemySprite = pb.SpriteResource('pokemon', enemy["pokemon"][0]["pokedexNumber"])
-    player["url"] = playerSprite.url
-    enemy["url"] = enemySprite.url
-
+@app.route("/battle-update", methods=["POST"])
+def battle_update():
     if request.method == "POST" and request.is_json:
         if request.isjson:
             data = request.get_json()
@@ -75,10 +81,6 @@ def index():
             player["url"] = playerSprite.url
             enemy["url"] = enemySprite.url
             
-            render_template("index.html", enemy=enemy, player=player, url=playerSprite.url, colors=colors, counters=counters)
-            
             return jsonify({"message": "JSON data received successfully!!"}, 200)
         else:
             return jsonify({"error":"Content Type must be json"}, 400)
-
-    return render_template("index.html", enemy=enemy, player=player, url=playerSprite.url, colors=colors, counters=counters)

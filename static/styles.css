@@ -4,9 +4,8 @@ body {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
     /* font-size: clamp(1rem, 2vw); */
     /* font-size: 20%; */
-    /* font-size: clamp(0.5rem, 1rem, 4rem); */
-    font-size: clamp(1.6vh, 1.6vh, 1vw);
-    /* font-size: clamp(0.7rem, 20px, 1.65vw); */
+    /* font-size: clamp(1.6vh, 1.6vh, 1vw); */
+    font-size: 1rem;
     overflow-y: auto;
 }
 
