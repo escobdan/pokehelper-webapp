@@ -17,7 +17,11 @@
 
         <link href="/static/styles.css" rel="stylesheet">
 
-        <title>Pokehelper: {% block title %}{% endblock %}</title>
+        <script src="/static/main.js"></script>
+        
+        
+
+        <title>Pokehelper</title>
 
     </head>
 
@@ -25,42 +29,6 @@
         {% block main %}{% endblock %}
     </body>
 
-    <script>
-        async function updateData() {
-            // Example new data for player and enemy
-            const newData = {
-                player: {{ player }},
-                enemy: {{ enemy }}
-            };
-
-            const response = await fetch('/update', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(newData)
-            });
-
-            if (response.ok) {
-                const result = await response.json();
-                updateUI(result.player, result.enemy);
-            } else {
-                console.error("Failed to update:", response.statusText);
-            }
-        }
-
-        function updateUI(player, enemy) {
-            // Update player UI
-            document.getElementById('playerName').innerText = player.name;
-            document.getElementById('playerImage').src = player.url;
-
-            // Update enemy UI
-            document.getElementById('enemyName').innerText = enemy.name;
-            document.getElementById('enemyImage').src = enemy.url;
-        }
-
-        setInterval(updateData, 5000);
-    </script>
 
     <footer>
         Daniel Escobar 2024
