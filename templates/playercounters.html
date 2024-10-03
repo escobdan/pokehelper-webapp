@@ -11,10 +11,10 @@
     <div class="tab-content" id="v-player-pills-tabContent">
       <div class="tab-pane show active" id="v-player-strong-against" role="tabpanel" aria-labelledby="strong-against-tab">
         <div class="row ps-2 row-cols-1">
-          {% if data.player.pokemon[0].secondaryType %}
-            {% set strong_against = (counters[data.player.pokemon[0].primaryType].strong_against + counters[data.player.pokemon[0].secondaryType].strong_against) | unique | list %}
+          {% if player.pokemon[0].secondaryType %}
+            {% set strong_against = (counters[player.pokemon[0].primaryType].strong_against + counters[player.pokemon[0].secondaryType].strong_against) | unique | list %}
           {% else %}
-            {% set strong_against = counters[data.player.pokemon[0].primaryType].strong_against %}
+            {% set strong_against = counters[player.pokemon[0].primaryType].strong_against %}
           {% endif %}
             {% if strong_against | length > 1 %}
             {% for type in strong_against %}
@@ -35,10 +35,10 @@
       </div>
       <div class="tab-pane" id="v-player-weak-against" role="tabpanel" aria-labelledby="weak-against-tab">
         <div class="row ps-2 row-cols-1">
-          {% if data.player.pokemon[0].secondaryType %}
-            {% set weak_against = (counters[data.player.pokemon[0].primaryType].weak_against + counters[data.player.pokemon[0].secondaryType].weak_against) | unique | list %}
+          {% if player.pokemon[0].secondaryType %}
+            {% set weak_against = (counters[player.pokemon[0].primaryType].weak_against + counters[player.pokemon[0].secondaryType].weak_against) | unique | list %}
           {% else %}
-            {% set weak_against = counters[data.player.pokemon[0].primaryType].weak_against %}
+            {% set weak_against = counters[player.pokemon[0].primaryType].weak_against %}
           {% endif %}
           {% if weak_against | length > 1 %}
             {% for type in weak_against %}
@@ -59,10 +59,10 @@
       </div>
       <div class="tab-pane" id="v-player-resistant-to" role="tabpanel" aria-labelledby="resistant-to-tab">
         <div class="row ps-2 row-cols-1">
-          {% if data.player.pokemon[0].secondaryType %}
-            {% set resistant_to = (counters[data.player.pokemon[0].primaryType].resistant_to + counters[data.player.pokemon[0].secondaryType].resistant_to) | unique | list %}
+          {% if player.pokemon[0].secondaryType %}
+            {% set resistant_to = (counters[player.pokemon[0].primaryType].resistant_to + counters[player.pokemon[0].secondaryType].resistant_to) | unique | list %}
           {% else %}
-            {% set resistant_to = counters[data.player.pokemon[0].primaryType].resistant_to %}
+            {% set resistant_to = counters[player.pokemon[0].primaryType].resistant_to %}
           {% endif %}
           {% if resistant_to | length > 1 %}
             {% for type in resistant_to %}
@@ -83,10 +83,10 @@
       </div>
       <div class="tab-pane" id="v-player-vulnerable-to" role="tabpanel" aria-labelledby="vulnerable-to-tab">
         <div class="row ps-2 row-cols-1">
-          {% if data.player.pokemon[0].secondaryType %}
-            {% set vulnerable_to = (counters[data.player.pokemon[0].primaryType].vulnerable_to + counters[data.player.pokemon[0].secondaryType].vulnerable_to) | unique | list %}
+          {% if player.pokemon[0].secondaryType %}
+            {% set vulnerable_to = (counters[player.pokemon[0].primaryType].vulnerable_to + counters[player.pokemon[0].secondaryType].vulnerable_to) | unique | list %}
           {% else %}
-            {% set vulnerable_to = counters[data.player.pokemon[0].primaryType].vulnerable_to %}
+            {% set vulnerable_to = counters[player.pokemon[0].primaryType].vulnerable_to %}
           {% endif %}
           {% if vulnerable_to | length > 1 %}
             {% for type in vulnerable_to %}
@@ -110,7 +110,7 @@
 
 <style>
   .nav-pills .nav-link.active.player {
-    background-color: {{ colors[data.player.pokemon[0].primaryType] }};
+    background-color: {{ colors[player.pokemon[0].primaryType] }};
   }
 
   .nav-pills .nav-link {

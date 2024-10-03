@@ -48,6 +48,8 @@ colors = {
 	'fairy': '#e397d1',
 }
 
+players = ["escobdan"]
+
 test4 = '{"player":{"is_player":true,"pokemon":[{"pokemonName":"Palkia","pokedexNumber":484,"primaryType":"water","secondaryType":"dragon","hp":13,"currentHealth":13,"lvl":1,"attack":7,"defence":7,"specialAttack":8,"specialDefence":7,"speed":6,"moves":[{"moveName":"waterpulse","moveDesc":"The user attacks the target with a pulsing blast of water. This may also confuse the target.","moveType":"water","movePower":60.0,"moveCategory":"special","moveAccuracy":100.0,"movePp":20},{"moveName":"scaryface","moveDesc":"The user frightens the target with a scary face to harshly lower its Speed stat.","moveType":"normal","movePower":0.0,"moveCategory":"status","moveAccuracy":100.0,"movePp":10},{"moveName":"dragonbreath","moveDesc":"The user exhales a mighty gust that inflicts damage. This may also leave the target with paralysis.","moveType":"dragon","movePower":60.0,"moveCategory":"special","moveAccuracy":100.0,"movePp":20}]}]},"enemy":{"is_player":false,"pokemon":[{"pokemonName":"Groudon","pokedexNumber":383,"primaryType":"ground","hp":13,"currentHealth":13,"lvl":1,"attack":8,"defence":7,"specialAttack":7,"specialDefence":6,"speed":7,"moves":[{"moveName":"scaryface","moveDesc":"The user frightens the target with a scary face to harshly lower its Speed stat.","moveType":"normal","movePower":0.0,"moveCategory":"status","moveAccuracy":100.0,"movePp":10},{"moveName":"precipiceblades","moveDesc":"The user attacks opposing Pokémon by manifesting the power of the land in fearsome blades of stone.","moveType":"ground","movePower":120.0,"moveCategory":"physical","moveAccuracy":85.0,"movePp":10},{"moveName":"mudshot","moveDesc":"The user attacks by hurling a blob of mud at the target. This also lowers the target’s Speed stat.","moveType":"ground","movePower":55.0,"moveCategory":"special","moveAccuracy":95.0,"movePp":15},{"moveName":"lavaplume","moveDesc":"The user torches everything around it in an inferno of scarlet flames. This may also leave those it hits with a burn.","moveType":"fire","movePower":80.0,"moveCategory":"special","moveAccuracy":100.0,"movePp":15}]}]}}'
 test2 = '{"player":{"is_player":true,"pokemon":[{"pokemonName":"Charmander","pokedexNumber":4,"primaryType":"fire","hp":28,"currentHealth":28,"lvl":10,"attack":18,"defence":15,"specialAttack":19,"specialDefence":13,"speed":20,"moves":[{"moveName":"smokescreen","moveDesc":"The user releases an obscuring cloud of smoke or ink. This lowers the target’s accuracy.","moveType":"normal","movePower":0.0,"moveCategory":"status","moveAccuracy":100.0,"movePp":20},{"moveName":"ember","moveDesc":"The target is attacked with small flames. This may also leave the target with a burn.","moveType":"fire","movePower":40.0,"moveCategory":"special","moveAccuracy":100.0,"movePp":25},{"moveName":"scratch","moveDesc":"Hard, pointed, sharp claws rake the target to inflict damage.","moveType":"normal","movePower":40.0,"moveCategory":"physical","moveAccuracy":100.0,"movePp":35},{"moveName":"growl","moveDesc":"The user growls in an endearing way, making opposing Pokémon less wary. This lowers their Attack stats.","moveType":"normal","movePower":0.0,"moveCategory":"status","moveAccuracy":100.0,"movePp":40}]}]},"enemy":{"is_player":false,"pokemon":[{"pokemonName":"Groudon","pokedexNumber":383,"primaryType":"ground","hp":13,"currentHealth":13,"lvl":1,"attack":8,"defence":7,"specialAttack":7,"specialDefence":6,"speed":7,"moves":[{"moveName":"scaryface","moveDesc":"The user frightens the target with a scary face to harshly lower its Speed stat.","moveType":"normal","movePower":0.0,"moveCategory":"status","moveAccuracy":100.0,"movePp":10},{"moveName":"precipiceblades","moveDesc":"The user attacks opposing Pokémon by manifesting the power of the land in fearsome blades of stone.","moveType":"ground","movePower":120.0,"moveCategory":"physical","moveAccuracy":85.0,"movePp":10},{"moveName":"mudshot","moveDesc":"The user attacks by hurling a blob of mud at the target. This also lowers the target’s Speed stat.","moveType":"ground","movePower":55.0,"moveCategory":"special","moveAccuracy":95.0,"movePp":15},{"moveName":"lavaplume","moveDesc":"The user torches everything around it in an inferno of scarlet flames. This may also leave those it hits with a burn.","moveType":"fire","movePower":80.0,"moveCategory":"special","moveAccuracy":100.0,"movePp":15}]}]}}'
 test3 = '{"player":{"is_player":true,"pokemon":[{"pokemonName":"Pikachu","pokedexNumber":25,"primaryType":"electric","hp":11,"currentHealth":11,"lvl":1,"attack":6,"defence":5,"specialAttack":6,"specialDefence":6,"speed":5,"moves":[{"moveName":"thundershock","moveDesc":"A jolt of electricity crashes down on the target to inflict damage. This may also leave the target with paralysis.","moveType":"electric","movePower":40.0,"moveCategory":"special","moveAccuracy":100.0,"movePp":30},{"moveName":"tailwhip","moveDesc":"The user wags its tail cutely, making opposing Pokémon less wary and lowering their Defense stats.","moveType":"normal","movePower":0.0,"moveCategory":"status","moveAccuracy":100.0,"movePp":30},{"moveName":"sweetkiss","moveDesc":"The user kisses the target with a sweet, angelic cuteness that causes confusion.","moveType":"fairy","movePower":0.0,"moveCategory":"status","moveAccuracy":75.0,"movePp":10},{"moveName":"quickattack","moveDesc":"The user lunges at the target at a speed that makes it almost invisible. This move always goes first.","moveType":"normal","movePower":40.0,"moveCategory":"physical","moveAccuracy":100.0,"movePp":30}]},{"pokemonName":"Charmander","pokedexNumber":4,"primaryType":"fire","hp":28,"currentHealth":28,"lvl":10,"attack":18,"defence":15,"specialAttack":19,"specialDefence":13,"speed":20,"moves":[{"moveName":"smokescreen","moveDesc":"The user releases an obscuring cloud of smoke or ink. This lowers the target’s accuracy.","moveType":"normal","movePower":0.0,"moveCategory":"status","moveAccuracy":100.0,"movePp":20},{"moveName":"ember","moveDesc":"The target is attacked with small flames. This may also leave the target with a burn.","moveType":"fire","movePower":40.0,"moveCategory":"special","moveAccuracy":100.0,"movePp":25},{"moveName":"scratch","moveDesc":"Hard, pointed, sharp claws rake the target to inflict damage.","moveType":"normal","movePower":40.0,"moveCategory":"physical","moveAccuracy":100.0,"movePp":35},{"moveName":"growl","moveDesc":"The user growls in an endearing way, making opposing Pokémon less wary. This lowers their Attack stats.","moveType":"normal","movePower":0.0,"moveCategory":"status","moveAccuracy":100.0,"movePp":40}]}]},"enemy":{"is_player":false,"pokemon":[{"pokemonName":"Doduo","pokedexNumber":84,"primaryType":"normal","secondaryType":"flying","hp":24,"currentHealth":24,"lvl":8,"attack":20,"defence":15,"specialAttack":9,"specialDefence":10,"speed":18,"moves":[{"moveName":"rage","moveDesc":"As long as this move is in use, the power of rage raises the Attack stat each time the user is hit in battle.","moveType":"normal","movePower":20.0,"moveCategory":"physical","moveAccuracy":100.0,"movePp":20},{"moveName":"quickattack","moveDesc":"The user lunges at the target at a speed that makes it almost invisible. This move always goes first.","moveType":"normal","movePower":40.0,"moveCategory":"physical","moveAccuracy":100.0,"movePp":30},{"moveName":"peck","moveDesc":"The target is jabbed with a sharply pointed beak or horn.","moveType":"flying","movePower":35.0,"moveCategory":"physical","moveAccuracy":100.0,"movePp":35},{"moveName":"growl","moveDesc":"The user growls in an endearing way, making opposing Pokémon less wary. This lowers their Attack stats.","moveType":"normal","movePower":0.0,"moveCategory":"status","moveAccuracy":100.0,"movePp":40}]}]}}'
@@ -67,7 +69,7 @@ enemy["url"] = enemySprite.url
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    return render_template("index.html", data=data, colors=colors, counters=counters)
+    return render_template("index.html", player=player, enemy=enemy, colors=colors, counters=counters)
 
 
 @app.route("/_update-data/", methods=["POST"])
@@ -75,26 +77,26 @@ def update_data():
     global updated
     if not updated:
         updated = True
-        return jsonify({'data': render_template('index.html', data=data, colors=colors, counters=counters)}), 200
+        return jsonify({'data': render_template('index.html', player=player, enemy=enemy, colors=colors, counters=counters)}), 200
     else: 
         return jsonify({'data': True}), 200
 
 @app.route("/battle-update", methods=["POST"])
 def battle_update():
-    global data
+    global player
+    global enemy
     global updated
     # if request.isjson:
     data = request.get_json()
-    print("new data received")
-    # player, enemy = data.values()
-    playerSprite = pb.SpriteResource('pokemon', data["player"]["pokemon"][0]["pokedexNumber"])
-    enemySprite = pb.SpriteResource('pokemon', data["enemy"]["pokemon"][0]["pokedexNumber"])
-    data["player"]["url"] = playerSprite.url
-    data["enemy"]["url"] = enemySprite.url
+    player, enemy = data.values()
+    playerSprite = pb.SpriteResource('pokemon', player["pokemon"][0]["pokedexNumber"])
+    enemySprite = pb.SpriteResource('pokemon', enemy["pokemon"][0]["pokedexNumber"])
+    player["url"] = playerSprite.url
+    enemy["url"] = enemySprite.url
     
     updated = False
 
-    return jsonify({'data': render_template('battle.html', data=data, colors=colors, counters=counters)}), 200
+    return jsonify({'data': render_template('battle.html', player=player, enemy=enemy, colors=colors, counters=counters)}), 200
     # return jsonify("successfuly received data"), 200
     # else:
     #     return jsonify({"error":"Content Type must be json"}, 400)
