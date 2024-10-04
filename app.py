@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 import pokebase as pb
+from time import time
 
 
 # Configure application
@@ -129,16 +130,16 @@ def processNewData(newData):
     data[tempKeys[0]] = newData
     return
 
-# @app.route('/getdatetimejson', methods=['GET'])
-# def get_time():
-#     # Get client time from the GET parameter
-#     client_time = float(request.args.get('ct'))
+@app.route('/getdatetimejson', methods=['GET'])
+def get_time():
+    # Get client time from the GET parameter
+    client_time = float(request.args.get('ct'))
 
-#     # Get server timestamp in milliseconds
-#     server_timestamp = time() * 1000
+    # Get server timestamp in milliseconds
+    server_timestamp = time() * 1000
 
-#     # Calculate the difference between server and client time
-#     server_client_request_diff_time = server_timestamp - client_time
+    # Calculate the difference between server and client time
+    server_client_request_diff_time = server_timestamp - client_time
 
-#     # Return the time difference and server timestamp as a JSON object
-#     return jsonify(diff=server_client_request_diff_time, serverTimestamp=server_timestamp)
+    # Return the time difference and server timestamp as a JSON object
+    return jsonify(diff=server_client_request_diff_time, serverTimestamp=server_timestamp)
