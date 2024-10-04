@@ -5,7 +5,7 @@ body {
     /* font-size: clamp(1rem, 2vw); */
     /* font-size: 20%; */
     /* font-size: clamp(1.6vh, 1.6vh, 1vw); */
-    font-size: 1rem;
+    font-size: 1.05rem;
     overflow-y: auto;
 }
 
@@ -88,6 +88,7 @@ body {
 }
 
 .counter-icon {
+    min-width: 2vw;
     max-width: 2.5vw;
 }
 
@@ -95,3 +96,17 @@ body {
     max-width: 4vw;
 }
 
+.nav-pills .nav-link.active.dropdown-item {
+    background-color: #0e1a40;
+    color: #d2d2d2;
+  }
+
+.nav-pills .nav-link.dropdown-item {
+    color: #0e1a40;
+  }
+
+
+
+/* .nav-pills .nav-link {
+    color: #0e1a40;
+  } */

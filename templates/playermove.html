@@ -1,5 +1,5 @@
 {% block playermove %}
-    {% for move in player.pokemon[0].moves %}
+    {% for move in playerInfo.player.pokemon[0].moves %}
         <div class="col-6">
             <div class="card p-3 pokemon-ability rounded shadow" style="background-color: {{ colors[move.moveType] }};">
                 <!-- <div class="card-title"> -->

@@ -1,228 +1,494 @@
 {% block battle %}
-    <div class="container mt-4 text-center" id="battle-main-block">
-        <h4>A BATTLE HAS BEGUN</h4>
-        <div class="row align-items-center">
-            <div class="col">
-                <div class="container-fluid text-center">
-                    <div class="row row-cols-3 g-4 align-items-center">
-                        <div class="col-1 p-1">
-                            {% for p in enemy.pokemon %}
-                                {% if loop.index > 1 %}
-                                    {% if p.currentHealth > 0 %}
-                                        <img class="party-pokeballs" src="static/images/Poké_Ball_icon.png">
-                                    {% else %}
-                                        <img class="party-pokeballs" src="static/images/Poké_Ball_icon.png" style="filter:grayscale(100%);">
-                                    {% endif %}
-                                {% endif %}
-                            {% endfor %}
-                        </div>
-                        <div class="col-10">
-                            <div class="card player-card" style="background-color: {{ colors[enemy.pokemon[0].primaryType] }};">
-                                <div class="card-title">
-                                    <div class="row align-items-center">
-                                        <div class="col-9">
-                                            <div class="row justify-content-around">
-                                                <div class="col-4 align-items-center g-3">
-                                                    <div class="row row-cols-1 g-1">
-                                                        <div class="col rounded shadow">
-                                                            <div class="container">
-                                                                lvl {{ enemy.pokemon[0].lvl }}
-                                                            </div>
-                                                        </div>
-                                                        <div class="col">
-                                                            <div class="row align-items-center">
-                                                                <div class="col">
-                                                                    <div class="container">
-                                                                        <img class="pokemon-type" src="static/images/TypeIcons/{{ enemy.pokemon[0].primaryType}}.svg">
-                                                                        {% if enemy.pokemon[0].secondaryType %}
-                                                                            <img class="pokemon-type" src="static/images/TypeIcons/{{ enemy.pokemon[0].secondaryType}}.svg">
-                                                                        {% endif %}
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-8">
-                                                    <h4>{{ enemy.pokemon[0].pokemonName }}</h4>
-                                                    <div class="row shadow rounded row-cols-3 justify-content-around">
-                                                        <div class="col">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
-                                                                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
-                                                            </svg>
-                                                            {{ enemy.pokemon[0].hp }}
-                                                        </div>
-                                                        <div class="col">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hammer" viewBox="0 0 16 16">
-                                                                <path d="M9.972 2.508a.5.5 0 0 0-.16-.556l-.178-.129a5 5 0 0 0-2.076-.783C6.215.862 4.504 1.229 2.84 3.133H1.786a.5.5 0 0 0-.354.147L.146 4.567a.5.5 0 0 0 0 .706l2.571 2.579a.5.5 0 0 0 .708 0l1.286-1.29a.5.5 0 0 0 .146-.353V5.57l8.387 8.873A.5.5 0 0 0 14 14.5l1.5-1.5a.5.5 0 0 0 .017-.689l-9.129-8.63c.747-.456 1.772-.839 3.112-.839a.5.5 0 0 0 .472-.334"/>
-                                                            </svg>
-                                                            {{ enemy.pokemon[0].attack }}
-                                                        </div>
-                                                        <div class="col">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-shield-fill" viewBox="0 0 16 16">
-                                                                <path d="M5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.8 11.8 0 0 1-2.517 2.453 7 7 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7 7 0 0 1-1.048-.625 11.8 11.8 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 63 63 0 0 1 5.072.56"/>
-                                                            </svg>
-                                                            {{ enemy.pokemon[0].defence }}
-                                                        </div>
-                                                        <div class="col">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightning-charge-fill" viewBox="0 0 16 16">
-                                                                <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
-                                                            </svg>
-                                                            {{ enemy.pokemon[0].speed }}
-                                                        </div>
-                                                        <div class="col">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-magic" viewBox="0 0 16 16">
-                                                                <path d="M9.5 2.672a.5.5 0 1 0 1 0V.843a.5.5 0 0 0-1 0zm4.5.035A.5.5 0 0 0 13.293 2L12 3.293a.5.5 0 1 0 .707.707zM7.293 4A.5.5 0 1 0 8 3.293L6.707 2A.5.5 0 0 0 6 2.707zm-.621 2.5a.5.5 0 1 0 0-1H4.843a.5.5 0 1 0 0 1zm8.485 0a.5.5 0 1 0 0-1h-1.829a.5.5 0 0 0 0 1zM13.293 10A.5.5 0 1 0 14 9.293L12.707 8a.5.5 0 1 0-.707.707zM9.5 11.157a.5.5 0 0 0 1 0V9.328a.5.5 0 0 0-1 0zm1.854-5.097a.5.5 0 0 0 0-.706l-.708-.708a.5.5 0 0 0-.707 0L8.646 5.94a.5.5 0 0 0 0 .707l.708.708a.5.5 0 0 0 .707 0l1.293-1.293Zm-3 3a.5.5 0 0 0 0-.706l-.708-.708a.5.5 0 0 0-.707 0L.646 13.94a.5.5 0 0 0 0 .707l.708.708a.5.5 0 0 0 .707 0z"/>
-                                                            </svg>
-                                                            {{ enemy.pokemon[0].specialAttack }}
-                                                        </div>
-                                                        <div class="col">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bullseye" viewBox="0 0 16 16">
-                                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-                                                                <path d="M8 13A5 5 0 1 1 8 3a5 5 0 0 1 0 10m0 1A6 6 0 1 0 8 2a6 6 0 0 0 0 12"/>
-                                                                <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8"/>
-                                                                <path d="M9.5 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
-                                                            </svg>
-                                                            {{ enemy.pokemon[0].specialDefence }}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-3">
-                                            <img src="{{ enemy.url }}" class="battle-pokemon" alt="capstone/static/images/missingmon.png">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="container">
-                                    <div class="row row-cols-2 g-2">
-                                        {% for move in enemy.pokemon[0].moves %}
-                                            <div class="col-6">
-                                                <div class="p-3 enemy-ability rounded shadow" style="background-color: {{ colors[move.moveType] }};">
-                                                    <img class="enemy-move-type" src="static/images/TypeIcons/{{ move.moveType }}.svg">
-                                                </div>
-                                            </div>
-                                        {% endfor %}
-                                    </div>
-                                </div>
-                            <div class="card-body">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-1 p-0">
-                        <div class="row align-items-center">
-                            {% block enemy_counters %}
-                                {% include 'enemycounters.html' %}
-                            {% endblock %}
-                        </div>
-                    </div>
-                    <div class="col-1 p-0">
-                        <div class="row align-items-center">
-                            {% block player_counters %}
-                                {% include 'playercounters.html' %}
-                            {% endblock %}
-                        </div>
-                    </div>
-                    <div class="col-10">
-                        <div class="card player-card" style="background-color: {{ colors[player.pokemon[0].primaryType] }};">
-                            <div class="card-title">
-                                <div class="row align-items-center">
-                                    <div class="col-3">
-                                        <img src="{{ player.url }}" class="battle-pokemon img-fluid rounded-start" alt="capstone/static/images/missingmon.png">
-                                    </div>
-                                    <div class="col-9">
-                                        <div class="row justify-content-around">
-                                            <div class="col-8">
-                                                <h4>{{ player.pokemon[0].pokemonName }}</h4>
-                                                <div class="row rounded shadow row-cols-3 justify-content-around">
-                                                    <div class="col">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
-                                                            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
-                                                        </svg>
-                                                        {{ player.pokemon[0].hp }}
-                                                    </div>
-                                                    <div class="col">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hammer" viewBox="0 0 16 16">
-                                                            <path d="M9.972 2.508a.5.5 0 0 0-.16-.556l-.178-.129a5 5 0 0 0-2.076-.783C6.215.862 4.504 1.229 2.84 3.133H1.786a.5.5 0 0 0-.354.147L.146 4.567a.5.5 0 0 0 0 .706l2.571 2.579a.5.5 0 0 0 .708 0l1.286-1.29a.5.5 0 0 0 .146-.353V5.57l8.387 8.873A.5.5 0 0 0 14 14.5l1.5-1.5a.5.5 0 0 0 .017-.689l-9.129-8.63c.747-.456 1.772-.839 3.112-.839a.5.5 0 0 0 .472-.334"/>
-                                                        </svg>
-                                                        {{ player.pokemon[0].attack }}
-                                                    </div>
-                                                    <div class="col">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-shield-fill" viewBox="0 0 16 16">
-                                                            <path d="M5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.8 11.8 0 0 1-2.517 2.453 7 7 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7 7 0 0 1-1.048-.625 11.8 11.8 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 63 63 0 0 1 5.072.56"/>
-                                                        </svg>
-                                                        {{ player.pokemon[0].defence }}
-                                                    </div>
-                                                    <div class="col">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightning-charge-fill" viewBox="0 0 16 16">
-                                                            <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
-                                                        </svg>
-                                                        {{ player.pokemon[0].speed }}
-                                                    </div>
-                                                    <div class="col">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-magic" viewBox="0 0 16 16">
-                                                            <path d="M9.5 2.672a.5.5 0 1 0 1 0V.843a.5.5 0 0 0-1 0zm4.5.035A.5.5 0 0 0 13.293 2L12 3.293a.5.5 0 1 0 .707.707zM7.293 4A.5.5 0 1 0 8 3.293L6.707 2A.5.5 0 0 0 6 2.707zm-.621 2.5a.5.5 0 1 0 0-1H4.843a.5.5 0 1 0 0 1zm8.485 0a.5.5 0 1 0 0-1h-1.829a.5.5 0 0 0 0 1zM13.293 10A.5.5 0 1 0 14 9.293L12.707 8a.5.5 0 1 0-.707.707zM9.5 11.157a.5.5 0 0 0 1 0V9.328a.5.5 0 0 0-1 0zm1.854-5.097a.5.5 0 0 0 0-.706l-.708-.708a.5.5 0 0 0-.707 0L8.646 5.94a.5.5 0 0 0 0 .707l.708.708a.5.5 0 0 0 .707 0l1.293-1.293Zm-3 3a.5.5 0 0 0 0-.706l-.708-.708a.5.5 0 0 0-.707 0L.646 13.94a.5.5 0 0 0 0 .707l.708.708a.5.5 0 0 0 .707 0z"/>
-                                                        </svg>
-                                                        {{ player.pokemon[0].specialAttack }}
-                                                    </div>
-                                                    <div class="col">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bullseye" viewBox="0 0 16 16">
-                                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-                                                            <path d="M8 13A5 5 0 1 1 8 3a5 5 0 0 1 0 10m0 1A6 6 0 1 0 8 2a6 6 0 0 0 0 12"/>
-                                                            <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8"/>
-                                                            <path d="M9.5 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
-                                                        </svg>
-                                                        {{ player.pokemon[0].specialDefence }}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-4 align-items-center g-3">
-                                                <div class="row row-cols-1 g-1">
-                                                    <div class="col rounded shadow">
-                                                        <div class="container">
-                                                            lvl {{ player.pokemon[0].lvl }}
-                                                        </div>
-                                                    </div>
-                                                    <div class="col">
-                                                        <div class="row align-items-center">
-                                                            <div class="col">
-                                                                <div class="container">
-                                                                    <img class="pokemon-type" src="static/images/TypeIcons/{{ player.pokemon[0].primaryType }}.svg">
-                                                                    {% if player.pokemon[0].secondaryType != null %}
-                                                                        <img class="pokemon-type" src="static/images/TypeIcons/{{ player.pokemon[0].secondaryType }}.svg">
-                                                                    {% endif %}
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="container">
-                                    <div class="row d-flex align-items-stretch row-cols-2 g-2">
-                                        {% block playermove %}
-                                            {% include 'playermove.html' %}
-                                        {% endblock %}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-1 p-1">
-                        {% for p in player.pokemon %}
-                            {% if loop.index > 1 %}
-                                {% if p.currentHealth > 0 %}
-                                    <img class="party-pokeballs" src="static/images/Poké_Ball_icon.png">
-                                {% else %}
-                                    <img class="party-pokeballs" src="static/images/Poké_Ball_icon.png" style="filter:grayscale(100%);">
-                                {% endif %}
+    {% for key,playerInfo in data.items() %}
+    <div class="tab-pane {{ 'show active' if loop.first else ''}}" id="v-{{ key }}-tab" role="tabpanel" aria-labelledby="{{ key }}-tab">
+        <div class="container-fluid text-center">
+            <div class="row row-cols-3 g-4 align-items-center">
+                <div class="col-1 p-1">
+                    {% for p in playerInfo.enemy.pokemon %}
+                        {% if loop.index > 1 %}
+                            {% if p.currentHealth > 0 %}
+                                <img class="party-pokeballs" src="static/images/Poké_Ball_icon.png">
+                            {% else %}
+                                <img class="party-pokeballs" src="static/images/Poké_Ball_icon.png" style="filter:grayscale(100%);">
                             {% endif %}
-                        {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="col-10">
+                    <div class="card player-card" style="background-color: {{ colors[playerInfo.enemy.pokemon[0].primaryType] }};">
+                        <div class="card-title">
+                            <div class="row align-items-center">
+                                <div class="col-9">
+                                    <div class="row justify-content-around">
+                                        <div class="col-4 align-items-center g-3">
+                                            <div class="row row-cols-1 g-1">
+                                                <div class="col rounded shadow">
+                                                    <div class="container">
+                                                        lvl {{ playerInfo.enemy.pokemon[0].lvl }}
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="row align-items-center">
+                                                        <div class="col">
+                                                            <div class="container">
+                                                                <img class="pokemon-type" src="static/images/TypeIcons/{{ playerInfo.enemy.pokemon[0].primaryType}}.svg">
+                                                                {% if playerInfo.enemy.pokemon[0].secondaryType %}
+                                                                    <img class="pokemon-type" src="static/images/TypeIcons/{{ playerInfo.enemy.pokemon[0].secondaryType}}.svg">
+                                                                {% endif %}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-8">
+                                            <h4>{{ playerInfo.enemy.pokemon[0].pokemonName }}</h4>
+                                            <div class="row shadow rounded row-cols-3 justify-content-around">
+                                                <div class="col">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+                                                    </svg>
+                                                    {{ playerInfo.enemy.pokemon[0].hp }}
+                                                </div>
+                                                <div class="col">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hammer" viewBox="0 0 16 16">
+                                                        <path d="M9.972 2.508a.5.5 0 0 0-.16-.556l-.178-.129a5 5 0 0 0-2.076-.783C6.215.862 4.504 1.229 2.84 3.133H1.786a.5.5 0 0 0-.354.147L.146 4.567a.5.5 0 0 0 0 .706l2.571 2.579a.5.5 0 0 0 .708 0l1.286-1.29a.5.5 0 0 0 .146-.353V5.57l8.387 8.873A.5.5 0 0 0 14 14.5l1.5-1.5a.5.5 0 0 0 .017-.689l-9.129-8.63c.747-.456 1.772-.839 3.112-.839a.5.5 0 0 0 .472-.334"/>
+                                                    </svg>
+                                                    {{ playerInfo.enemy.pokemon[0].attack }}
+                                                </div>
+                                                <div class="col">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-shield-fill" viewBox="0 0 16 16">
+                                                        <path d="M5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.8 11.8 0 0 1-2.517 2.453 7 7 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7 7 0 0 1-1.048-.625 11.8 11.8 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 63 63 0 0 1 5.072.56"/>
+                                                    </svg>
+                                                    {{ playerInfo.enemy.pokemon[0].defence }}
+                                                </div>
+                                                <div class="col">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightning-charge-fill" viewBox="0 0 16 16">
+                                                        <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
+                                                    </svg>
+                                                    {{ playerInfo.enemy.pokemon[0].speed }}
+                                                </div>
+                                                <div class="col">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-magic" viewBox="0 0 16 16">
+                                                        <path d="M9.5 2.672a.5.5 0 1 0 1 0V.843a.5.5 0 0 0-1 0zm4.5.035A.5.5 0 0 0 13.293 2L12 3.293a.5.5 0 1 0 .707.707zM7.293 4A.5.5 0 1 0 8 3.293L6.707 2A.5.5 0 0 0 6 2.707zm-.621 2.5a.5.5 0 1 0 0-1H4.843a.5.5 0 1 0 0 1zm8.485 0a.5.5 0 1 0 0-1h-1.829a.5.5 0 0 0 0 1zM13.293 10A.5.5 0 1 0 14 9.293L12.707 8a.5.5 0 1 0-.707.707zM9.5 11.157a.5.5 0 0 0 1 0V9.328a.5.5 0 0 0-1 0zm1.854-5.097a.5.5 0 0 0 0-.706l-.708-.708a.5.5 0 0 0-.707 0L8.646 5.94a.5.5 0 0 0 0 .707l.708.708a.5.5 0 0 0 .707 0l1.293-1.293Zm-3 3a.5.5 0 0 0 0-.706l-.708-.708a.5.5 0 0 0-.707 0L.646 13.94a.5.5 0 0 0 0 .707l.708.708a.5.5 0 0 0 .707 0z"/>
+                                                    </svg>
+                                                    {{ playerInfo.enemy.pokemon[0].specialAttack }}
+                                                </div>
+                                                <div class="col">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bullseye" viewBox="0 0 16 16">
+                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                                                        <path d="M8 13A5 5 0 1 1 8 3a5 5 0 0 1 0 10m0 1A6 6 0 1 0 8 2a6 6 0 0 0 0 12"/>
+                                                        <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8"/>
+                                                        <path d="M9.5 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
+                                                    </svg>
+                                                    {{ playerInfo.enemy.pokemon[0].specialDefence }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <img src="{{ playerInfo.enemy.url }}" class="battle-pokemon" alt="capstone/static/images/missingmon.png">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row row-cols-2 g-2">
+                                {% for move in playerInfo.enemy.pokemon[0].moves %}
+                                    <div class="col-6">
+                                        <div class="p-3 enemy-ability rounded shadow" style="background-color: {{ colors[move.moveType] }};">
+                                            <img class="enemy-move-type" src="static/images/TypeIcons/{{ move.moveType }}.svg">
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    <div class="card-body">
                     </div>
                 </div>
             </div>
+            <div class="col-1 p-0">
+                <div class="row align-items-center">
+                    <div class="d-flex align-items-center">
+                        <div class="tab-content" id="v-enemy-pills-tabContent-{{ key }}">
+                          <div class="tab-pane show active" id="v-enemy-strong-against-{{ key }}" role="tabpanel" aria-labelledby="strong-against-tab">
+                            <div class="row pe-2 row-cols-1">
+                              {% if playerInfo.enemy.pokemon[0].secondaryType %}
+                                {% set strong_against = (counters[playerInfo.enemy.pokemon[0].primaryType].strong_against + counters[playerInfo.enemy.pokemon[0].secondaryType].strong_against) | unique | list %}
+                              {% else %}
+                                {% set strong_against = counters[playerInfo.enemy.pokemon[0].primaryType].strong_against %}
+                              {% endif %}
+                                {% if strong_against | length > 1 %}
+                                {% for type in strong_against %}
+                                  <div class="col py-2">
+                                      <img class="counter-icon" src="static/images/TypeIcons/{{ type }}.svg">
+                                  </div>
+                                {% endfor %}
+                              {% else %}
+                                {% if strong_against | length == 1 %}
+                                  <div class="col py-2"></div>
+                                  <div class="col py-2">
+                                    <img class="counter-icon" src="static/images/TypeIcons/{{ strong_against[0] }}.svg">
+                                  </div>
+                                  <div class="col py-2"></div>
+                                {% endif %}
+                              {% endif %}
+                            </div>
+                          </div>
+                          <div class="tab-pane" id="v-enemy-weak-against-{{ key }}" role="tabpanel" aria-labelledby="weak-against-tab">
+                            <div class="row pe-2 row-cols-1">
+                              {% if playerInfo.enemy.pokemon[0].secondaryType %}
+                                {% set weak_against = (counters[playerInfo.enemy.pokemon[0].primaryType].weak_against + counters[playerInfo.enemy.pokemon[0].secondaryType].weak_against) | unique | list %}
+                              {% else %}
+                                {% set weak_against = counters[playerInfo.enemy.pokemon[0].primaryType].weak_against %}
+                              {% endif %}
+                              {% if weak_against | length > 1 %}
+                                {% for type in weak_against %}
+                                  <div class="col py-2">
+                                      <img class="counter-icon" src="static/images/TypeIcons/{{ type }}.svg">
+                                  </div>
+                                {% endfor %}
+                              {% else %}
+                                {% if weak_against | length == 1 %}
+                                  <div class="col py-2"></div>
+                                  <div class="col py-2">
+                                    <img class="counter-icon" src="static/images/TypeIcons/{{ weak_against[0] }}.svg">
+                                  </div>
+                                  <div class="col py-2"></div>
+                                {% endif %}
+                              {% endif %}
+                            </div>
+                          </div>
+                          <div class="tab-pane" id="v-enemy-resistant-to-{{ key }}" role="tabpanel" aria-labelledby="resistant-to-tab">
+                            <div class="row pe-2 row-cols-1">
+                              {% if playerInfo.enemy.pokemon[0].secondaryType %}
+                                {% set resistant_to = (counters[playerInfo.enemy.pokemon[0].primaryType].resistant_to + counters[playerInfo.enemy.pokemon[0].secondaryType].resistant_to) | unique | list %}
+                              {% else %}
+                                {% set resistant_to = counters[playerInfo.enemy.pokemon[0].primaryType].resistant_to %}
+                              {% endif %}
+                              {% if resistant_to | length > 1 %}
+                                {% for type in resistant_to %}
+                                  <div class="col py-2">
+                                      <img class="counter-icon" src="static/images/TypeIcons/{{ type }}.svg">
+                                  </div>
+                                {% endfor %}
+                              {% else %}
+                                {% if resistant_to | length == 1 %}
+                                  <div class="col py-2"></div>
+                                  <div class="col py-2">
+                                    <img class="counter-icon" src="static/images/TypeIcons/{{ resistant_to[0] }}.svg">
+                                  </div>
+                                  <div class="col py-2"></div>
+                                {% endif %}
+                              {% endif %}
+                            </div>
+                          </div>
+                          <div class="tab-pane" id="v-enemy-vulnerable-to-{{ key }}" role="tabpanel" aria-labelledby="vulnerable-to-tab">
+                            <div class="row pe-2 row-cols-1">
+                              {% if playerInfo.enemy.pokemon[0].secondaryType %}
+                                {% set vulnerable_to = (counters[playerInfo.enemy.pokemon[0].primaryType].vulnerable_to + counters[playerInfo.enemy.pokemon[0].secondaryType].vulnerable_to) | unique | list %}
+                              {% else %}
+                                {% set vulnerable_to = counters[playerInfo.enemy.pokemon[0].primaryType].vulnerable_to %}
+                              {% endif %}
+                              {% if vulnerable_to | length > 1 %}
+                                {% for type in vulnerable_to %}
+                                  <div class="col py-2">
+                                      <img class="counter-icon" src="static/images/TypeIcons/{{ type }}.svg">
+                                  </div>
+                                {% endfor %}
+                              {% else %}
+                                {% if vulnerable_to | length == 1 %}
+                                  <div class="col py-2"></div>
+                                  <div class="col py-2">
+                                    <img class="counter-icon" src="static/images/TypeIcons/{{ vulnerable_to[0] }}.svg">
+                                  </div>
+                                  <div class="col py-2"></div>
+                                {% endif %}
+                              {% endif %}
+                            </div>
+                          </div>
+                        </div>
+                        <div class="nav flex-column nav-pills m-0" id="v-enemy-pills-tab" role="tablist" aria-orientation="vertical">
+                          <button class="counter-enemy nav-link rotate-enemy-text active enemy-{{ key }}" id="strong-against-tab-{{ key }}" data-bs-toggle="pill" data-bs-target="#v-enemy-strong-against-{{ key }}" type="button" role="tab" aria-controls="v-strong-against" aria-selected="true">str</button>
+                          <button class="counter-enemy nav-link rotate-enemy-text enemy-{{ key }}" id="weak-against-tab-{{ key }}" data-bs-toggle="pill" data-bs-target="#v-enemy-weak-against-{{ key }}" type="button" role="tab" aria-controls="v-weak-against" aria-selected="false">wea</button>
+                          <button class="counter-enemy nav-link rotate-enemy-text enemy-{{ key }}" id="resistant-to-tab-{{ key }}" data-bs-toggle="pill" data-bs-target="#v-enemy-resistant-to-{{ key }}" type="button" role="tab" aria-controls="v-resistant-to" aria-selected="false">res</button>
+                          <button class="counter-enemy nav-link rotate-enemy-text enemy-{{ key }}" id="vulnerable-to-tab-{{ key }}" data-bs-toggle="pill" data-bs-target="#v-enemy-vulnerable-to-{{ key }}" type="button" role="tab" aria-controls="v-vulnerable-to" aria-selected="false">vul</button>
+                        </div>
+                    </div>
+                    
+                    <style>
+                      .nav-pills .nav-link.active.enemy-{{ key }} {
+                        background-color: {{ colors[playerInfo.enemy.pokemon[0].primaryType] }};
+                      }
+                    
+                      .nav-pills .nav-link {
+                        color: white;
+                      }
+                    
+                    </style>
+                </div>
+            </div>
+            <div class="col-1 p-0">
+                <div class="row align-items-center">
+                    <div class="d-flex align-items-center">
+                        <div class="nav flex-column nav-pills m-0" id="v-player-pills-tab-{{ key }}" role="tablist" aria-orientation="vertical">
+                          <button class="counter-player nav-link rotate-player-text active player-{{ key }}" id="strong-against-tab-{{ key }}" data-bs-toggle="pill" data-bs-target="#v-player-strong-against-{{ key }}" type="button" role="tab" aria-controls="v-strong-against" aria-selected="true">str</button>
+                          <button class="counter-player nav-link rotate-player-text player{{ key }}" id="weak-against-tab-{{ key }}" data-bs-toggle="pill" data-bs-target="#v-player-weak-against-{{ key }}" type="button" role="tab" aria-controls="v-weak-against" aria-selected="false">wea</button>
+                          <button class="counter-player nav-link rotate-player-text player{{ key }}" id="resistant-to-tab-{{ key }}" data-bs-toggle="pill" data-bs-target="#v-player-resistant-to-{{ key }}" type="button" role="tab" aria-controls="v-resistant-to" aria-selected="false">res</button>
+                          <button class="counter-player nav-link rotate-player-text player{{ key }}" id="vulnerable-to-tab-{{ key }}" data-bs-toggle="pill" data-bs-target="#v-player-vulnerable-to-{{ key }}" type="button" role="tab" aria-controls="v-vulnerable-to" aria-selected="false">vul</button>
+                        </div>
+                          <div class="tab-content" id="v-player-pills-tabContent">
+                            <div class="tab-pane show active" id="v-player-strong-against-{{ key }}" role="tabpanel" aria-labelledby="strong-against-tab">
+                              <div class="row ps-2 row-cols-1">
+                                {% if playerInfo.player.pokemon[0].secondaryType %}
+                                  {% set strong_against = (counters[playerInfo.player.pokemon[0].primaryType].strong_against + counters[playerInfo.player.pokemon[0].secondaryType].strong_against) | unique | list %}
+                                {% else %}
+                                  {% set strong_against = counters[playerInfo.player.pokemon[0].primaryType].strong_against %}
+                                {% endif %}
+                                  {% if strong_against | length > 1 %}
+                                  {% for type in strong_against %}
+                                    <div class="col py-2">
+                                        <img class="counter-icon" src="static/images/TypeIcons/{{ type }}.svg">
+                                    </div>
+                                  {% endfor %}
+                                {% else %}
+                                  {% if strong_against | length == 1 %}
+                                    <div class="col py-2"></div>
+                                    <div class="col py-2">
+                                      <img class="counter-icon" src="static/images/TypeIcons/{{ strong_against[0] }}.svg">
+                                    </div>
+                                    <div class="col py-2"></div>
+                                  {% endif %}
+                                {% endif %}
+                              </div>
+                            </div>
+                            <div class="tab-pane" id="v-player-weak-against-{{ key }}" role="tabpanel" aria-labelledby="weak-against-tab">
+                              <div class="row ps-2 row-cols-1">
+                                {% if playerInfo.player.pokemon[0].secondaryType %}
+                                  {% set weak_against = (counters[playerInfo.player.pokemon[0].primaryType].weak_against + counters[playerInfo.player.pokemon[0].secondaryType].weak_against) | unique | list %}
+                                {% else %}
+                                  {% set weak_against = counters[playerInfo.player.pokemon[0].primaryType].weak_against %}
+                                {% endif %}
+                                {% if weak_against | length > 1 %}
+                                  {% for type in weak_against %}
+                                    <div class="col py-2">
+                                        <img class="counter-icon" src="static/images/TypeIcons/{{ type }}.svg">
+                                    </div>
+                                  {% endfor %}
+                                {% else %}
+                                  {% if weak_against | length == 1 %}
+                                    <div class="col py-2"></div>
+                                    <div class="col py-2">
+                                      <img class="counter-icon" src="static/images/TypeIcons/{{ weak_against[0] }}.svg">
+                                    </div>
+                                    <div class="col py-2"></div>
+                                  {% endif %}
+                                {% endif %}
+                              </div>
+                            </div>
+                            <div class="tab-pane" id="v-player-resistant-to-{{ key }}" role="tabpanel" aria-labelledby="resistant-to-tab">
+                              <div class="row ps-2 row-cols-1">
+                                {% if playerInfo.player.pokemon[0].secondaryType %}
+                                  {% set resistant_to = (counters[playerInfo.player.pokemon[0].primaryType].resistant_to + counters[playerInfo.player.pokemon[0].secondaryType].resistant_to) | unique | list %}
+                                {% else %}
+                                  {% set resistant_to = counters[playerInfo.player.pokemon[0].primaryType].resistant_to %}
+                                {% endif %}
+                                {% if resistant_to | length > 1 %}
+                                  {% for type in resistant_to %}
+                                    <div class="col py-2">
+                                        <img class="counter-icon" src="static/images/TypeIcons/{{ type }}.svg">
+                                    </div>
+                                  {% endfor %}
+                                {% else %}
+                                  {% if resistant_to | length == 1 %}
+                                    <div class="col py-2"></div>
+                                    <div class="col py-2">
+                                      <img class="counter-icon" src="static/images/TypeIcons/{{ resistant_to[0] }}.svg">
+                                    </div>
+                                    <div class="col py-2"></div>
+                                  {% endif %}
+                                {% endif %}
+                              </div>
+                            </div>
+                            <div class="tab-pane" id="v-player-vulnerable-to-{{ key }}" role="tabpanel" aria-labelledby="vulnerable-to-tab">
+                              <div class="row ps-2 row-cols-1">
+                                {% if playerInfo.player.pokemon[0].secondaryType %}
+                                  {% set vulnerable_to = (counters[playerInfo.player.pokemon[0].primaryType].vulnerable_to + counters[playerInfo.player.pokemon[0].secondaryType].vulnerable_to) | unique | list %}
+                                {% else %}
+                                  {% set vulnerable_to = counters[playerInfo.player.pokemon[0].primaryType].vulnerable_to %}
+                                {% endif %}
+                                {% if vulnerable_to | length > 1 %}
+                                  {% for type in vulnerable_to %}
+                                    <div class="col py-2">
+                                        <img class="counter-icon" src="static/images/TypeIcons/{{ type }}.svg">
+                                    </div>
+                                  {% endfor %}
+                                {% else %}
+                                  {% if vulnerable_to | length == 1 %}
+                                    <div class="col py-2"></div>
+                                    <div class="col py-2">
+                                      <img class="counter-icon" src="static/images/TypeIcons/{{ vulnerable_to[0] }}.svg">
+                                    </div>
+                                    <div class="col py-2"></div>
+                                  {% endif %}
+                                {% endif %}
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                      
+                      <style>
+                        .nav-pills .nav-link.active.player-{{ key }} {
+                          background-color: {{ colors[playerInfo.player.pokemon[0].primaryType] }};
+                        }
+                      
+                        /* .nav-pills .nav-link {
+                          color: white;
+                        } */
+                      
+                      </style>
+                </div>
+            </div>
+            <div class="col-10">
+                <div class="card player-card" style="background-color: {{ colors[playerInfo.player.pokemon[0].primaryType] }};">
+                    <div class="card-title">
+                        <div class="row align-items-center">
+                            <div class="col-3">
+                                <img src="{{ playerInfo.player.url }}" class="battle-pokemon img-fluid rounded-start" alt="capstone/static/images/missingmon.png">
+                            </div>
+                            <div class="col-9">
+                                <div class="row justify-content-around">
+                                    <div class="col-8">
+                                        <h4>{{ playerInfo.player.pokemon[0].pokemonName }}</h4>
+                                        <div class="row rounded shadow row-cols-3 justify-content-around">
+                                            <div class="col">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+                                                </svg>
+                                                {{ playerInfo.player.pokemon[0].hp }}
+                                            </div>
+                                            <div class="col">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hammer" viewBox="0 0 16 16">
+                                                    <path d="M9.972 2.508a.5.5 0 0 0-.16-.556l-.178-.129a5 5 0 0 0-2.076-.783C6.215.862 4.504 1.229 2.84 3.133H1.786a.5.5 0 0 0-.354.147L.146 4.567a.5.5 0 0 0 0 .706l2.571 2.579a.5.5 0 0 0 .708 0l1.286-1.29a.5.5 0 0 0 .146-.353V5.57l8.387 8.873A.5.5 0 0 0 14 14.5l1.5-1.5a.5.5 0 0 0 .017-.689l-9.129-8.63c.747-.456 1.772-.839 3.112-.839a.5.5 0 0 0 .472-.334"/>
+                                                </svg>
+                                                {{ playerInfo.player.pokemon[0].attack }}
+                                            </div>
+                                            <div class="col">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-shield-fill" viewBox="0 0 16 16">
+                                                    <path d="M5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.8 11.8 0 0 1-2.517 2.453 7 7 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7 7 0 0 1-1.048-.625 11.8 11.8 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 63 63 0 0 1 5.072.56"/>
+                                                </svg>
+                                                {{ playerInfo.player.pokemon[0].defence }}
+                                            </div>
+                                            <div class="col">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightning-charge-fill" viewBox="0 0 16 16">
+                                                    <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
+                                                </svg>
+                                                {{ playerInfo.player.pokemon[0].speed }}
+                                            </div>
+                                            <div class="col">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-magic" viewBox="0 0 16 16">
+                                                    <path d="M9.5 2.672a.5.5 0 1 0 1 0V.843a.5.5 0 0 0-1 0zm4.5.035A.5.5 0 0 0 13.293 2L12 3.293a.5.5 0 1 0 .707.707zM7.293 4A.5.5 0 1 0 8 3.293L6.707 2A.5.5 0 0 0 6 2.707zm-.621 2.5a.5.5 0 1 0 0-1H4.843a.5.5 0 1 0 0 1zm8.485 0a.5.5 0 1 0 0-1h-1.829a.5.5 0 0 0 0 1zM13.293 10A.5.5 0 1 0 14 9.293L12.707 8a.5.5 0 1 0-.707.707zM9.5 11.157a.5.5 0 0 0 1 0V9.328a.5.5 0 0 0-1 0zm1.854-5.097a.5.5 0 0 0 0-.706l-.708-.708a.5.5 0 0 0-.707 0L8.646 5.94a.5.5 0 0 0 0 .707l.708.708a.5.5 0 0 0 .707 0l1.293-1.293Zm-3 3a.5.5 0 0 0 0-.706l-.708-.708a.5.5 0 0 0-.707 0L.646 13.94a.5.5 0 0 0 0 .707l.708.708a.5.5 0 0 0 .707 0z"/>
+                                                </svg>
+                                                {{ playerInfo.player.pokemon[0].specialAttack }}
+                                            </div>
+                                            <div class="col">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bullseye" viewBox="0 0 16 16">
+                                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                                                    <path d="M8 13A5 5 0 1 1 8 3a5 5 0 0 1 0 10m0 1A6 6 0 1 0 8 2a6 6 0 0 0 0 12"/>
+                                                    <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8"/>
+                                                    <path d="M9.5 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
+                                                </svg>
+                                                {{ playerInfo.player.pokemon[0].specialDefence }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 align-items-center g-3">
+                                        <div class="row row-cols-1 g-1">
+                                            <div class="col rounded shadow">
+                                                <div class="container">
+                                                    lvl {{ playerInfo.player.pokemon[0].lvl }}
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="row align-items-center">
+                                                    <div class="col">
+                                                        <div class="container">
+                                                            <img class="pokemon-type" src="static/images/TypeIcons/{{ playerInfo.player.pokemon[0].primaryType }}.svg">
+                                                            {% if playerInfo.player.pokemon[0].secondaryType != null %}
+                                                                <img class="pokemon-type" src="static/images/TypeIcons/{{ playerInfo.player.pokemon[0].secondaryType }}.svg">
+                                                            {% endif %}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row d-flex align-items-stretch row-cols-2 g-2">
+                            {% for move in playerInfo.player.pokemon[0].moves %}
+                                <div class="col-6">
+                                    <div class="card p-3 pokemon-ability rounded shadow" style="background-color: {{ colors[move.moveType] }};">
+                                        <!-- <div class="card-title"> -->
+                                            <div class="row p-0">
+                                                <div class="col-4 d-flex justify-items-center align-items-center">
+                                                    <!-- <img class="player-move-type  rounded-start" src="static/images/TypeIcons/fire.svg"> -->
+                                                    <img class="player-move-type img-fluid rounded-start" src="static/images/TypeIcons/{{ move.moveType }}.svg">
+                                                </div>
+                                                <div class="col-8 d-flex align-items-center">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <h5 class="text">{{ move.moveName | capitalize }}</h5>
+                                                        </div>
+                                                        <div class="col">
+                                                            <img class="move-stat-icon rounded-start" src="static/images/MoveCatIcons/{{ move.moveCategory }}.png">
+                                                            {% if move.movePower > 0 %}
+                                                                <p class="">{{ move.movePower | int}}</p>
+                                                            {% else %}
+                                                                <p class="">-</p>
+                                                            {% endif %}
+                                                        </div>
+                                                        <div class="col">
+                                                            <div class="row">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="move-stat-icon bi bi-crosshair" viewBox="0 0 16 16">
+                                                                    <path d="M8.5.5a.5.5 0 0 0-1 0v.518A7 7 0 0 0 1.018 7.5H.5a.5.5 0 0 0 0 1h.518A7 7 0 0 0 7.5 14.982v.518a.5.5 0 0 0 1 0v-.518A7 7 0 0 0 14.982 8.5h.518a.5.5 0 0 0 0-1h-.518A7 7 0 0 0 8.5 1.018zm-6.48 7A6 6 0 0 1 7.5 2.02v.48a.5.5 0 0 0 1 0v-.48a6 6 0 0 1 5.48 5.48h-.48a.5.5 0 0 0 0 1h.48a6 6 0 0 1-5.48 5.48v-.48a.5.5 0 0 0-1 0v.48A6 6 0 0 1 2.02 8.5h.48a.5.5 0 0 0 0-1zM8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4"/>
+                                                                </svg>
+                                                                {% if move.movePower > 0 %}
+                                                                    <p class="">{{ move.moveAccuracy | int}}</p>
+                                                                {% else %}
+                                                                    <p class="">-</p>
+                                                                {% endif %}
+                                                                </div>
+                                                            </div>
+                                                    </div>
+                                                </div>
+                                            <!-- </div> -->
+                                        </div>
+                                        <div class="card-body move-desc p-0">
+                                            <p class="card-text text-start">{{ move.moveDesc }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-1 p-1">
+                {% for p in playerInfo.player.pokemon %}
+                    {% if loop.index > 1 %}
+                        {% if p.currentHealth > 0 %}
+                            <img class="party-pokeballs" src="static/images/Poké_Ball_icon.png">
+                        {% else %}
+                            <img class="party-pokeballs" src="static/images/Poké_Ball_icon.png" style="filter:grayscale(100%);">
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </div>
         </div>
     </div>
+    {% endfor %}
 {% endblock %}

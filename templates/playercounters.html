@@ -2,19 +2,19 @@
 
 <!-- Nav tabs -->
 <div class="d-flex align-items-center">
-  <div class="nav flex-column nav-pills m-0" id="v-player-pills-tab" role="tablist" aria-orientation="vertical">
-    <button class="counter-player nav-link rotate-player-text active player" id="strong-against-tab" data-bs-toggle="pill" data-bs-target="#v-player-strong-against" type="button" role="tab" aria-controls="v-strong-against" aria-selected="true">str</button>
-    <button class="counter-player nav-link rotate-player-text player" id="weak-against-tab" data-bs-toggle="pill" data-bs-target="#v-player-weak-against" type="button" role="tab" aria-controls="v-weak-against" aria-selected="false">wea</button>
-    <button class="counter-player nav-link rotate-player-text player" id="resistant-to-tab" data-bs-toggle="pill" data-bs-target="#v-player-resistant-to" type="button" role="tab" aria-controls="v-resistant-to" aria-selected="false">res</button>
-    <button class="counter-player nav-link rotate-player-text player" id="vulnerable-to-tab" data-bs-toggle="pill" data-bs-target="#v-player-vulnerable-to" type="button" role="tab" aria-controls="v-vulnerable-to" aria-selected="false">vul</button>
+  <div class="nav flex-column nav-pills m-0" id="v-player-pills-tab-{{ key }}" role="tablist" aria-orientation="vertical">
+    <button class="counter-player nav-link rotate-player-text active player-{{ key }}" id="strong-against-tab-{{ key }}" data-bs-toggle="pill" data-bs-target="#v-player-strong-against-{{ key }}" type="button" role="tab" aria-controls="v-strong-against" aria-selected="true">str</button>
+    <button class="counter-player nav-link rotate-player-text player{{ key }}" id="weak-against-tab-{{ key }}" data-bs-toggle="pill" data-bs-target="#v-player-weak-against-{{ key }}" type="button" role="tab" aria-controls="v-weak-against" aria-selected="false">wea</button>
+    <button class="counter-player nav-link rotate-player-text player{{ key }}" id="resistant-to-tab-{{ key }}" data-bs-toggle="pill" data-bs-target="#v-player-resistant-to-{{ key }}" type="button" role="tab" aria-controls="v-resistant-to" aria-selected="false">res</button>
+    <button class="counter-player nav-link rotate-player-text player{{ key }}" id="vulnerable-to-tab-{{ key }}" data-bs-toggle="pill" data-bs-target="#v-player-vulnerable-to-{{ key }}" type="button" role="tab" aria-controls="v-vulnerable-to" aria-selected="false">vul</button>
   </div>
     <div class="tab-content" id="v-player-pills-tabContent">
-      <div class="tab-pane show active" id="v-player-strong-against" role="tabpanel" aria-labelledby="strong-against-tab">
+      <div class="tab-pane show active" id="v-player-strong-against-{{ key }}" role="tabpanel" aria-labelledby="strong-against-tab">
         <div class="row ps-2 row-cols-1">
-          {% if player.pokemon[0].secondaryType %}
-            {% set strong_against = (counters[player.pokemon[0].primaryType].strong_against + counters[player.pokemon[0].secondaryType].strong_against) | unique | list %}
+          {% if playerInfo.player.pokemon[0].secondaryType %}
+            {% set strong_against = (counters[playerInfo.player.pokemon[0].primaryType].strong_against + counters[playerInfo.player.pokemon[0].secondaryType].strong_against) | unique | list %}
           {% else %}
-            {% set strong_against = counters[player.pokemon[0].primaryType].strong_against %}
+            {% set strong_against = counters[playerInfo.player.pokemon[0].primaryType].strong_against %}
           {% endif %}
             {% if strong_against | length > 1 %}
             {% for type in strong_against %}
@@ -33,12 +33,12 @@
           {% endif %}
         </div>
       </div>
-      <div class="tab-pane" id="v-player-weak-against" role="tabpanel" aria-labelledby="weak-against-tab">
+      <div class="tab-pane" id="v-player-weak-against-{{ key }}" role="tabpanel" aria-labelledby="weak-against-tab">
         <div class="row ps-2 row-cols-1">
-          {% if player.pokemon[0].secondaryType %}
-            {% set weak_against = (counters[player.pokemon[0].primaryType].weak_against + counters[player.pokemon[0].secondaryType].weak_against) | unique | list %}
+          {% if playerInfo.player.pokemon[0].secondaryType %}
+            {% set weak_against = (counters[playerInfo.player.pokemon[0].primaryType].weak_against + counters[playerInfo.player.pokemon[0].secondaryType].weak_against) | unique | list %}
           {% else %}
-            {% set weak_against = counters[player.pokemon[0].primaryType].weak_against %}
+            {% set weak_against = counters[playerInfo.player.pokemon[0].primaryType].weak_against %}
           {% endif %}
           {% if weak_against | length > 1 %}
             {% for type in weak_against %}
@@ -57,12 +57,12 @@
           {% endif %}
         </div>
       </div>
-      <div class="tab-pane" id="v-player-resistant-to" role="tabpanel" aria-labelledby="resistant-to-tab">
+      <div class="tab-pane" id="v-player-resistant-to-{{ key }}" role="tabpanel" aria-labelledby="resistant-to-tab">
         <div class="row ps-2 row-cols-1">
-          {% if player.pokemon[0].secondaryType %}
-            {% set resistant_to = (counters[player.pokemon[0].primaryType].resistant_to + counters[player.pokemon[0].secondaryType].resistant_to) | unique | list %}
+          {% if playerInfo.player.pokemon[0].secondaryType %}
+            {% set resistant_to = (counters[playerInfo.player.pokemon[0].primaryType].resistant_to + counters[playerInfo.player.pokemon[0].secondaryType].resistant_to) | unique | list %}
           {% else %}
-            {% set resistant_to = counters[player.pokemon[0].primaryType].resistant_to %}
+            {% set resistant_to = counters[playerInfo.player.pokemon[0].primaryType].resistant_to %}
           {% endif %}
           {% if resistant_to | length > 1 %}
             {% for type in resistant_to %}
@@ -81,12 +81,12 @@
           {% endif %}
         </div>
       </div>
-      <div class="tab-pane" id="v-player-vulnerable-to" role="tabpanel" aria-labelledby="vulnerable-to-tab">
+      <div class="tab-pane" id="v-player-vulnerable-to-{{ key }}" role="tabpanel" aria-labelledby="vulnerable-to-tab">
         <div class="row ps-2 row-cols-1">
-          {% if player.pokemon[0].secondaryType %}
-            {% set vulnerable_to = (counters[player.pokemon[0].primaryType].vulnerable_to + counters[player.pokemon[0].secondaryType].vulnerable_to) | unique | list %}
+          {% if playerInfo.player.pokemon[0].secondaryType %}
+            {% set vulnerable_to = (counters[playerInfo.player.pokemon[0].primaryType].vulnerable_to + counters[playerInfo.player.pokemon[0].secondaryType].vulnerable_to) | unique | list %}
           {% else %}
-            {% set vulnerable_to = counters[player.pokemon[0].primaryType].vulnerable_to %}
+            {% set vulnerable_to = counters[playerInfo.player.pokemon[0].primaryType].vulnerable_to %}
           {% endif %}
           {% if vulnerable_to | length > 1 %}
             {% for type in vulnerable_to %}
@@ -109,19 +109,13 @@
 </div>
 
 <style>
-  .nav-pills .nav-link.active.player {
-    background-color: {{ colors[player.pokemon[0].primaryType] }};
+  .nav-pills .nav-link.active.player-{{ key }} {
+    background-color: {{ colors[playerInfo.player.pokemon[0].primaryType] }};
   }
 
-  .nav-pills .nav-link {
+  /* .nav-pills .nav-link {
     color: white;
-  }
+  } */
 
 </style>
-
-<script>
-  $(function () {
-      $('#strong-against-tab').tab('show');
-  });
-</script>
 {% endblock %}
