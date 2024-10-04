@@ -9,7 +9,6 @@ function fetchData() {
         url: "/_update-data/",
         type: "POST",
         success: (response) => {
-            console.log(response.data);
             if(response.data == true) {
                 console.log("already updated");
             }

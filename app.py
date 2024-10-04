@@ -68,17 +68,27 @@ def index():
 @app.route("/_update-data/", methods=["POST"])
 def update_data():
     global updated
-    if not updated:
-        for user in outdatedUsers:
-            # create renders of each user, regardless of if theyre new or not, and set the render in that same dictionary with the 'render:' key
-            if user["new"]:
-                user["navlink"] = render_template("usersnavlink.html", username=user["username"])
+    # if not updated:
+    #     for user in outdatedUsers:
+    #         # create renders of each user, regardless of if theyre new or not, and set the render in that same dictionary with the 'render:' key
+    #         if user["new"]:
+    #             user["navlink"] = render_template("usersnavlink.html", username=user["username"])
                 
-            user["tabpane"] = render_template("userstabpane.html", username=user["username"], playerInfo=data[user["username"]], colors=colors, counters=counters)
-                
+    #         user["tabpane"] = render_template("userstabpane.html", username=user["username"], playerInfo=data[user["username"]], colors=colors, counters=counters)
+    renders = []
+    
+    while len(outdatedUsers) > 0:
+        queue = outdatedUsers.pop(0)
+        if queue["new"]:
+            queue["navlink"] = render_template("usersnavlink.html", username=queue["username"])
+        queue["tabpane"] = render_template("userstabpane.html", username=queue["username"], playerInfo=data[queue["username"]], colors=colors, counters=counters)
+        renders.append(queue)
             
         updated = True
-        return jsonify({'data': outdatedUsers}), 200
+        
+        jsonResponse = jsonify({'data': renders})
+        
+        return jsonResponse, 200
     else: 
         return jsonify({'data': True}), 200
     
