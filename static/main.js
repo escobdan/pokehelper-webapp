@@ -1,5 +1,5 @@
 // Syncronize timers
-var tsp = new Date(Date.now()); // "Timestamp"
+var tsp = new Date('Sun June 06 2024 17:55:15 GMT+0100 (CST)'); // "Timestamp"
 
 window.onload = function() {
     // Get navigation timing entries
