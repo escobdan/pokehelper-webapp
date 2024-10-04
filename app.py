@@ -1,5 +1,4 @@
-from flask import Flask, flash, redirect, render_template, request, jsonify
-import json
+from flask import Flask, render_template, request, jsonify
 import pokebase as pb
 
 
@@ -107,7 +106,7 @@ def battle_update():
     
 
 def processNewData(newData):
-    print(newData)
+    # print(newData)
     global data
     tempKeys = list(newData.keys())
     if tempKeys[0] in data:
@@ -129,3 +128,17 @@ def processNewData(newData):
     newData["player"], newData["enemy"] = newData.pop(tempKeys[0]), newData.pop(tempKeys[1])
     data[tempKeys[0]] = newData
     return
+
+# @app.route('/getdatetimejson', methods=['GET'])
+# def get_time():
+#     # Get client time from the GET parameter
+#     client_time = float(request.args.get('ct'))
+
+#     # Get server timestamp in milliseconds
+#     server_timestamp = time() * 1000
+
+#     # Calculate the difference between server and client time
+#     server_client_request_diff_time = server_timestamp - client_time
+
+#     # Return the time difference and server timestamp as a JSON object
+#     return jsonify(diff=server_client_request_diff_time, serverTimestamp=server_timestamp)
