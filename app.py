@@ -2,10 +2,12 @@ from flask import Flask, render_template, request, jsonify
 import pokebase as pb
 from flask_socketio import SocketIO, emit
 
+
+async_mode = None
 app = Flask(__name__)
 # Configure application
 # Web Socket setup
-socketio = SocketIO(app)
+socketio = SocketIO(app, async_mode=async_mode, cors_allowed_origins="*")
 
 counters = {
     'normal': {'strong_against': [], 'weak_against': ['rock', 'ghost', 'steel'], 'resistant_to': ['ghost'], 'vulnerable_to': ['fighting']},
@@ -50,7 +52,6 @@ colors = {
 }
 
 data = {}
-
 
 @socketio.on("connect")
 def handle_connect():
