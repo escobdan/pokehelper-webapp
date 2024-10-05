@@ -91,11 +91,6 @@ def processNewData(newData):
         renders["navlink"] = render_template("usersnavlink.html", username=renders["username"])
     renders["tabpane"] = render_template("userstabpane.html", username=renders["username"], playerInfo=newData, colors=colors, counters=counters)
     
-    
     data[tempKeys[0]] = newData
     
     return renders
-
-
-if __name__ == '__main__':
-    socketio.run(app)
