@@ -95,3 +95,6 @@ def processNewData(newData):
     data[tempKeys[0]] = newData
     
     return renders
+
+if __name__ == '__main__':
+    socketio.run(app)
